@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Interfaces\Renderable;
+
 class Application
 {
     private $router;
@@ -13,6 +15,12 @@ class Application
 
     public function run()
     {
-        $this->router->dispatch();
+        $dispatched = $this->router->dispatch();
+
+        if ($dispatched instanceof Renderable) {
+            $dispatched->render();
+        } else {
+            echo $dispatched;
+        }
     }
 }

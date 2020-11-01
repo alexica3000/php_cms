@@ -17,12 +17,11 @@ class Router
         $action = trim($_SERVER['REQUEST_URI'], '/');
 
         if (!array_key_exists($action, $this->routes)) {
-            echo 'Page not exist.';
-            return;
+            return 'Page not exist.';
         }
 
         $callback = $this->routes[$action];
-        echo is_string($callback) ? $this->isStringCallback($callback) : call_user_func($callback);
+        return is_string($callback) ? $this->isStringCallback($callback) : call_user_func($callback);
     }
 
     private function isStringCallback($callback)
