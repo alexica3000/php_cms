@@ -1,9 +1,9 @@
 <?php
 
 const APP_DIR = '';
-const VIEW_DIR = 'view';
+const VIEW_DIR = __DIR__ . '/Views';
 const PREFIX = 'App\\';
-const SRC_DIR = __DIR__ . '/src/';
+const SRC_DIR = __DIR__ . '/';
 
 spl_autoload_register(function ($class) {
     $len = strlen(PREFIX);
