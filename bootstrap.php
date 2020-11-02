@@ -1,8 +1,8 @@
 <?php
 
-const APP_DIR = '';
-const SRC_DIR = __DIR__ . '/src/';
-const VIEW_DIR = SRC_DIR . 'Views';
+const APP_DIR = __DIR__;
+const SRC_DIR = APP_DIR . '/src/';
+const VIEW_DIR = SRC_DIR . 'Views/';
 const PREFIX = 'App\\';
 
 spl_autoload_register(function ($class) {

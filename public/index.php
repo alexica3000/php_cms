@@ -11,9 +11,7 @@ require_once '../bootstrap.php';
 
 $router = new Router();
 
-$router->get('/', function() {
-    return 'home';
-});
+$router->get('/', Controller::class . '@index');
 
 $router->get('about', function() {
     return 'about';
@@ -21,6 +19,7 @@ $router->get('about', function() {
 
 $router->get('/contact',Controller::class . '@contact');
 $router->get('/other',Controller::class . '@other');
+$router->get('/show',Controller::class . '@show');
 
 $application = new Application($router);
 $application->run();

@@ -6,7 +6,7 @@ use App\Interfaces\Renderable;
 
 class Application
 {
-    private $router;
+    private Router $router;
 
     public function __construct(Router $router)
     {

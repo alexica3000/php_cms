@@ -4,5 +4,5 @@ namespace App\Interfaces;
 
 interface Renderable
 {
-    public function render($string);
+    public function render();
 }
