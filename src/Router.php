@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Exceptions\NotFoundException;
+
 class Router
 {
     private array $routes;
@@ -17,7 +19,7 @@ class Router
         $action = trim($_SERVER['REQUEST_URI'], '/');
 
         if (!array_key_exists($action, $this->routes)) {
-            return 'Page not exist.';
+            throw new NotFoundException('Page not exist.');
         }
 
         $callback = $this->routes[$action];
