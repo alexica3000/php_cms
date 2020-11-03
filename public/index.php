@@ -17,9 +17,9 @@ $router->get('about', function() {
     return 'about';
 });
 
-$router->get('/contact',Controller::class . '@contact');
-$router->get('/other',Controller::class . '@other');
-$router->get('/show',Controller::class . '@show');
+$router->get('/contact', Controller::class . '@contact');
+$router->get('/other', Controller::class . '@other');
+$router->get('/show', Controller::class . '@show');
 
 $application = new Application($router);
 $application->run();
