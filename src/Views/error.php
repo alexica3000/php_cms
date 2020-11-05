@@ -33,10 +33,10 @@
     <title><?=$error ?? '' ?></title>
 </head>
 <body>
-    <? require VIEW_DIR .  '_templates/header.php'?>
+<!--    --><?// require VIEW_DIR .  '_templates/header.php'?>
     <main>
         <h2><?=$error ?? '' ?></h2>
     </main>
-    <? require VIEW_DIR .  '_templates/footer.php'?>
+<!--    --><?// require VIEW_DIR .  '_templates/footer.php'?>
 </body>
 </html>
