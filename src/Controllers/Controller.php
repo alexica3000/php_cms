@@ -7,30 +7,68 @@ use App\View;
 
 class Controller
 {
-    public function index()
+    public function home()
     {
-        return new View('index', ['title' => 'Index page']);
+        $data = [
+            'title' => 'Index page',
+            'page' => 'home',
+            'pageData' => [
+                'welcome' => 'Welcome to home page'
+            ]
+        ];
+
+        return new View('template', $data);
     }
 
     public function contact()
     {
-        return new View('contact', ['title' => 'Contact page']);
+        $data = [
+            'title' => 'Contact page',
+            'page' => 'contact',
+            'pageData' => [
+                'text' => 'Some text here'
+            ]
+        ];
+
+        return new View('template', $data);
     }
 
     public function allBooks()
     {
-        $books = Book::all();
+        $data = [
+            'title' => 'My Books',
+            'page' => 'books',
+            'pageData' => [
+                'books' => Book::all()
+            ]
+        ];
 
-        return new View('index', ['title' => 'My books']);
+        return new View('template', $data);
     }
 
-    public function show()
+    public function showBook($id)
     {
-        return new View('personal.messages.show', ['title' => 'Show page']);
+        $data = [
+            'title' => 'Book description',
+            'page' => 'one-book',
+            'pageData' => [
+                'book' => Book::where('id', $id)->first()
+            ]
+        ];
+
+        return new View('template', $data);
     }
 
     public function about()
     {
-        return new View('index', ['title' => 'About page']);
+        $data = [
+            'title' => 'About page',
+            'page' => 'about',
+            'pageData' => [
+                'text' => 'About'
+            ]
+        ];
+
+        return new View('template', $data);
     }
 }

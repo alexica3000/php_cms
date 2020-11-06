@@ -12,7 +12,7 @@
         <? includeView('layout.header'); ?>
 
         <div class="container">
-            <h2><?=$title ?? '' ?></h2>
+            <? includeView('pages.' . $page, $pageData); ?>
         </div>
 
         <? includeView('layout.footer'); ?>
