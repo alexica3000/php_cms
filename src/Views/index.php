@@ -5,15 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <link rel="stylesheet" href="../assets/style.css">
-        <title>Hello, world!</title>
+        <title><?=$title ?? '' ?></title>
     </head>
 
     <body>
-        <? require VIEW_DIR .  'base/header.php'?>
+        <? includeView('layout.header'); ?>
 
-        <h1>Hello, world!</h1>
+        <div class="container">
+            <h2><?=$title ?? '' ?></h2>
+        </div>
 
-        <? require VIEW_DIR .  'base/footer.php'?>
+        <? includeView('layout.footer'); ?>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

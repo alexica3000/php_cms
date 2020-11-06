@@ -1,0 +1,21 @@
+{
+    "name": "php/cms",
+    "description": "PHP CMS",
+    "authors": [
+        {
+            "name": "alex s",
+            "email": "test@test.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^8.13"
+    },
+    "autoload": {
+      "psr-4": {
+        "App\\": "src"
+      },
+      "files": [
+        "helpers.php"
+      ]
+    }
+}
