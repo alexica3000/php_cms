@@ -6,31 +6,30 @@ use App\Exceptions\NotFoundException;
 
 class Router
 {
-    private array $routes;
+    private $routes = [];
 
-    public function get($page, $callback)
+    public function get($path, $callback)
     {
-        $action = trim($page, '/');
-        $this->routes[$action] = $callback;
+        $this->routes[] = new Route('get', $path, $callback);
+    }
+
+    public function post($path, $callback)
+    {
+        $this->routes[] = new Route('post', $path, $callback);
     }
 
     public function dispatch()
     {
-        $action = trim($_SERVER['REQUEST_URI'], '/');
+        $method = strtolower($_SERVER['REQUEST_METHOD']);
+        $uri = '/' . trim(parse_url(strtolower($_SERVER['REQUEST_URI']), PHP_URL_PATH), '/');
 
-        if (!array_key_exists($action, $this->routes)) {
-            throw new NotFoundException('Page not exist.');
+        foreach ($this->routes as $route)
+        {
+            if ($route->match($method, $uri)) {
+                return $route->run($uri);
+            }
         }
 
-        $callback = $this->routes[$action];
-        return is_string($callback) ? $this->isStringCallback($callback) : call_user_func($callback);
-    }
-
-    private function isStringCallback($callback)
-    {
-        $arr = explode('@', $callback);
-        $controller = new $arr[0];
-        $method = $arr[1];
-        return call_user_func([$controller, $method]);
+        throw new NotFoundException('Page not exist.');
     }
 }

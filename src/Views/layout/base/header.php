@@ -18,6 +18,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/test/value1/test2/value2">Test</a>
+                </li>
             </ul>
         </div>
     </nav>

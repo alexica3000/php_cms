@@ -20,9 +20,8 @@ class Controller
     public function allBooks()
     {
         $books = Book::all();
-        var_dump($books);
 
-        return new View('index', ['title' => 'All books']);
+        return new View('index', ['title' => 'My books']);
     }
 
     public function show()
